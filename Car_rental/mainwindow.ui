@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1024</width>
+    <height>768</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1024</width>
+    <height>768</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Program do obsługi wypożyczalni pojazdów</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/images/car.ico</normaloff>:/images/car.ico</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">* {
+	font-family: &quot;Helvetica&quot;;
+}
+
+QMenu {
+		border: 1px solid black;
+}
+QMenu::item {
+	background-color: 	#4f5874;
+}
+QMenu::item:selected {
+	background-color:  #657194;	
+}
+
+QMenuBar {
+	background-color: 	#3a4055;
+}
+QMenuBar::item {
+	background-color: 	#3a4055;
+}
+QMenuBar::item:selected {
+	background-color: 	#657194;
+}
+
+
+QWidget {
+	background-color: qradialgradient(spread:reflect, cx:0.5, cy:0.5, radius:1.749, fx:0.5, fy:0.5, stop:0 rgba(5, 15, 52, 194), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));
+color:  rgb(203, 177, 75);
+}
+
+QGroupBox {
+	border: 3px inset gray;
+	background-color: none;
+	color:black;
+
+}
+QPushButton {
+	background-color: rgb(203, 177, 75);
+	border: 3px outset rgb(203, 177, 75);
+	border-radius: 15px;
+	color:black;
+}
+QPushButton:hover {
+	background-color: rgb(137, 163, 89);
+	border-color: rgb(137, 163, 89);
+}
+QPushButton:pressed {
+	border: 3px inset rgb(137, 163, 89);
+}
+
+QLabel {
+	background-color: none;
+	font: 700 12pt;
+}
+
+QLineEdit, QComboBox {
+	background-color: white;
+	font: 700 11pt;
+	border: 3px inset gray;
+	color:black;
+}
+QMessageBox{
+color: rgb(203, 177, 75);
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QPushButton" name="login">
+    <property name="geometry">
+     <rect>
+      <x>902</x>
+      <y>18</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/*background-color: rgb(203, 177, 75); 
+border-radius:10px;
+color:rgb(0, 0, 0);
+font: 700 10pt &quot;Arial&quot;; */
+font: 700 8pt;</string>
+    </property>
+    <property name="text">
+     <string>Zaloguj się</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>60</y>
+      <width>781</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>UpArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 20pt;
+text-decoration: underline; 
+color: rgb(159, 144, 69);
+background-color: none;
+text-transform:  uppercase;
+</string>
+    </property>
+    <property name="text">
+     <string>Wyszukiwarka pojazdów - Car Rental</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>981</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Helvetica</family>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>12</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(137, 163, 89);</string>
+     </property>
+     <property name="text">
+      <string>Wybierz rodzaj pojazdu:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="body_type">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>150</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>11</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:black;</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Osobowy</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dostawczy</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Motocykl</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 700 14pt;
+color: rgb(159, 144, 69);
+background-color: none;
+</string>
+     </property>
+     <property name="text">
+      <string>Czego szukasz?</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>100</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>12</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(137, 163, 89);</string>
+     </property>
+     <property name="text">
+      <string>Marka:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="brand">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>150</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>11</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="placeholderText">
+      <string>Toyota</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>100</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>12</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(137, 163, 89)</string>
+     </property>
+     <property name="text">
+      <string>Model:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="model">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>150</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>11</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="placeholderText">
+      <string>Sprinter Trueno AE86 </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>270</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>12</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(137, 163, 89)</string>
+     </property>
+     <property name="text">
+      <string>Rok produkcji:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>270</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>12</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(137, 163, 89)</string>
+     </property>
+     <property name="text">
+      <string>Rodzaj paliwa:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="fuel">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>320</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>11</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <item>
+      <property name="text">
+       <string>Benzyna</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Diesel</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Hybryda</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Elektryczny</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLineEdit" name="year">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>320</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>11</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="placeholderText">
+      <string>1986</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>450</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>11</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 700 11pt;</string>
+     </property>
+     <property name="text">
+      <string>Szukaj</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>518</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Helvetica</family>
+       <pointsize>11</pointsize>
+       <weight>87</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 700 11pt;</string>
+     </property>
+     <property name="text">
+      <string>Wyświetl wszytkie</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::PreventContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #3a4055;</string>
+   </property>
+   <widget class="QMenu" name="menuPlik">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string>Plik</string>
+    </property>
+    <addaction name="actionZamknij"/>
+   </widget>
+   <widget class="QMenu" name="menuPomoc">
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>Pomoc</string>
+    </property>
+    <addaction name="actionInstrukcja_dla_u_ytkownika"/>
+    <addaction name="actionO_programie"/>
+    <addaction name="actionO_bibliotece"/>
+   </widget>
+   <addaction name="menuPlik"/>
+   <addaction name="menuPomoc"/>
+  </widget>
+  <action name="actionZamknij">
+   <property name="text">
+    <string>Zamknij</string>
+   </property>
+  </action>
+  <action name="actionInstrukcja_dla_u_ytkownika">
+   <property name="text">
+    <string>Instrukcja dla użytkownika</string>
+   </property>
+  </action>
+  <action name="actionO_programie">
+   <property name="text">
+    <string>O programie</string>
+   </property>
+  </action>
+  <action name="actionO_bibliotece">
+   <property name="text">
+    <string>O bibliotece</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
